@@ -1,7 +1,5 @@
 # Event Management System
 
-![Event Management System Logo](path/to/your/logo.png)
-
 A comprehensive event management system built with React, allowing users to organize, participate in, and manage events efficiently.
 
 ## Table of Contents

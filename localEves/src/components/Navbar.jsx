@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { SERVER_URL } from "../../values";
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn, role }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);

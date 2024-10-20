@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EventCard from "./EventCard";
+import { SERVER_URL } from "../../values";
 
 const MyEvents = () => {
   const [events, setEvents] = useState([]);

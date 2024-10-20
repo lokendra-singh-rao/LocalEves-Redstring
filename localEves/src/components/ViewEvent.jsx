@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import ViewOrganiserEvent from "./ViewOrganiserEvent";
 import ViewParticipantEvent from "./ViewParticipantEvent";
+import { SERVER_URL } from "../../values";
 
 const ViewEvent = ({ role }) => {
   const { id } = useParams();

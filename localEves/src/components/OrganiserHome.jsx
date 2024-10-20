@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../../values";
 
 const DashboardSection = ({ title, description, items }) => (
   <div>

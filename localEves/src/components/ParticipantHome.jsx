@@ -7,6 +7,7 @@ import banner2 from "../assets/homebanner2.jpg";
 import banner3 from "../assets/homebanner3.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../../values";
 
 const ParticipantHome = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);

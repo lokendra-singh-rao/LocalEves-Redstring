@@ -3,7 +3,8 @@ import * as organiserService from "../services/organiser.service.js";
 export const createEvent = async (req, res) => {
   try {
     const { title, description, date, mode, category, location, isPaid, ticketPrice, attendeeCapacity, poster } = req.body;
-    const { userId } = req.user.userId;
+    const userId = req.user.userId;
+
     if (!title || !description || !date || !mode || !category || !attendeeCapacity || !poster) return res.status(400).json({ ok: false, err: "Missing required fields!" });
 
     const response = await organiserService.createEvent({ userId, title, description, date, mode, category, location, isPaid, ticketPrice, attendeeCapacity, poster });

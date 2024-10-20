@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EventCard from "./EventCard";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const DashboardSection = ({ title, description, items }) => (
   <div>
@@ -16,6 +17,7 @@ const DashboardSection = ({ title, description, items }) => (
 
 export default function OrganiserHome() {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const navigate = useNavigate();
 
   const getUpcomingEvents = async () => {
     try {

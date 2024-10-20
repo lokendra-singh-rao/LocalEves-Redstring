@@ -19,6 +19,8 @@ const PostEvent = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
 
+  const navigate = useNavigate();
+
   const Categories = ["Music", "Sports", "Tech", "Food", "Art", "Business", "Education", "Entertainment", "Health", "Community"];
 
   const handleChange = (e) => {
@@ -68,22 +70,23 @@ const PostEvent = () => {
       if (response.data.ok) {
         setSuccess("Event posted successfully!");
         setLoading(false);
+        setFormData({
+          title: "",
+          description: "",
+          date: "",
+          mode: "",
+          location: "",
+          category: [],
+          isPaid: false,
+          ticketPrice: 0,
+          attendeeCapacity: 0,
+          poster: "",
+        });
+        navigate("/my-events");
       }
     } catch (err) {
       setError("Failed to post event. Please try again.");
       setLoading(false);
-      setFormData({
-        title: "",
-        description: "",
-        date: "",
-        mode: "",
-        location: "",
-        category: [],
-        isPaid: false,
-        ticketPrice: 0,
-        attendeeCapacity: 0,
-        poster: "",
-      });
     }
   };
 

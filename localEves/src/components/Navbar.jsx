@@ -14,6 +14,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, role }) => {
     setDropdownOpen(false);
     localStorage.setItem("isLoggedIn", false);
 
+    toast.success("Logged out successfully!");
     await axios.post(
       `${SERVER_URL}/api/v1/auth/logout`,
       {},
@@ -21,7 +22,6 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, role }) => {
         withCredentials: true,
       }
     );
-    toast.success("Logged out successfully!");
     navigate("/login");
   };
 
@@ -42,6 +42,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, role }) => {
                 <div className="absolute right-0 mt-2 w-48 bg-white border rounded-lg shadow-lg">
                   <Link to={role === "ORGANISER" ? "/my-events" : "/registered-events"} className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setDropdownOpen(false)}>
                     My Events
+                  </Link>
+                  <Link to={role === "ORGANISER" ? "/post-event" : "/all-events"} className="block px-4 py-2 text-gray-700 hover:bg-gray-100" onClick={() => setDropdownOpen(false)}>
+                    {role === "ORGANISER" ? "Post Event" : "All Events"}
                   </Link>
                   <button onClick={handleLogout} className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
                     Logout

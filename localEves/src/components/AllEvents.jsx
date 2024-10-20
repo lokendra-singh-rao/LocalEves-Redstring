@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import EventCard from "./EventCard";
+import { SERVER_URL } from "../../values";
 
 const AllEvents = () => {
   const [events, setEvents] = useState([]);
@@ -9,7 +10,7 @@ const AllEvents = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/v1/participant/get-all-events", {
+      const response = await axios.get(`${SERVER_URL}/api/v1/participant/get-all-events`, {
         withCredentials: true,
       });
       if (response.data.ok) {

@@ -14,7 +14,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn, role }) => {
     localStorage.setItem("isLoggedIn", false);
 
     await axios.post(
-      "http://localhost:5001/api/v1/auth/logout",
+      `${SERVER_URL}/api/v1/auth/logout`,
       {},
       {
         withCredentials: true,

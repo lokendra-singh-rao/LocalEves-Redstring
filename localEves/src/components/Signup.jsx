@@ -37,7 +37,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5001/api/v1/auth/signup", { fullname, role, dob, email, password });
+      const response = await axios.post(```${SERVER_URL}/api/v1/auth/signup`, { fullname, role, dob, email, password });
 
       if (response.data.ok) {
         setSuccess(response.data.data.message);
@@ -72,7 +72,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5001/api/v1/auth/verify-otp", { otp, otpToken });
+      const response = await axios.post(```${SERVER_URL}/api/v1/auth/verify-otp`, { otp, otpToken });
 
       if (response.data.ok) {
         setSuccess(response.data.data);

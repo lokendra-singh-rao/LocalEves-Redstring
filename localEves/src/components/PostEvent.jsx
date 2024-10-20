@@ -61,7 +61,7 @@ const PostEvent = () => {
     setSuccess(null);
 
     try {
-      const response = await axios.post("http://localhost:5001/api/v1/organiser/create-event", formData);
+      const response = await axios.post(`${SERVER_URL}/api/v1/organiser/create-event`, formData);
       if (response.data.ok) {
         setSuccess("Event posted successfully!");
         setLoading(false);

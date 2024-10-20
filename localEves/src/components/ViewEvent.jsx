@@ -16,7 +16,7 @@ const ViewEvent = ({ role }) => {
   const handleRegister = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:5001/api/v1/participant/register/${id}`,
+        `${SERVER_URL}/api/v1/participant/register/${id}`,
         {},
         {
           withCredentials: true,
@@ -32,7 +32,7 @@ const ViewEvent = ({ role }) => {
   const fetchEvent = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5001/api/v1/participant/get-event/${id}`, {
+      const response = await axios.get(`${SERVER_URL}/api/v1/participant/get-event/${id}`, {
         withCredentials: true,
       });
 
@@ -50,7 +50,7 @@ const ViewEvent = ({ role }) => {
   const fetchOrganiserEvent = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5001/api/v1/organiser/get-event/${id}`, {
+      const response = await axios.get(`${SERVER_URL}/api/v1/organiser/get-event/${id}`, {
         withCredentials: true,
       });
 

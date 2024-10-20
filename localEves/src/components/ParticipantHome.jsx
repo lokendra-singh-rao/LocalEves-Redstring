@@ -22,7 +22,7 @@ const ParticipantHome = () => {
 
   const getUpcomingEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/v1/participant/get-upcoming-events", {
+      const response = await axios.get(`${SERVER_URL}/api/v1/participant/get-upcoming-events`, {
         withCredentials: true,
       });
       if (response.data.ok) {

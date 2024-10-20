@@ -24,7 +24,7 @@ const Login = ({ setIsLoggedIn, setRole }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5001/api/v1/auth/login",
+        `${SERVER_URL}/api/v1/auth/login`,
         { email, password },
         {
           withCredentials: true,

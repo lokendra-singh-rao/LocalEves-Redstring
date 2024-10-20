@@ -9,7 +9,7 @@ const MyEvents = () => {
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/api/v1/organiser/get-events", {
+      const response = await axios.get(`${SERVER_URL}/api/v1/organiser/get-events`, {
         withCredentials: true,
       });
       if (response.data.ok) {

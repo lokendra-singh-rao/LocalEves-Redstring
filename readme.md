@@ -11,6 +11,11 @@ A comprehensive event management system built with React, allowing users to orga
 
 ## Features
 
+### Test Credentials
+
+- **Organiser**: organiser@mail.com, password: 123456
+- **Participant**: participant@mail.com, password: 123456
+
 ### User Authentication
 
 - **Login**: Secure user authentication system.

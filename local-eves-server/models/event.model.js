@@ -68,7 +68,7 @@ export const findEventById = async ({ id }) => {
 };
 
 export const findAllEvents = async () => {
-  const events = await EventModel.find();
+  const events = await EventModel.find().sort({ createdAt: -1 });
   return events;
 };
 

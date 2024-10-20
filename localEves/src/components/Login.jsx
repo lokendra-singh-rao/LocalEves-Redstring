@@ -7,11 +7,13 @@ const Login = ({ setIsLoggedIn, setRole }) => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError("");
     setSuccess("");
     // Basic validation
@@ -46,6 +48,8 @@ const Login = ({ setIsLoggedIn, setRole }) => {
       } else {
         setError("An error occurred! Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,8 +78,8 @@ const Login = ({ setIsLoggedIn, setRole }) => {
             {success && <div className="text-green-500">{success}</div>}
           </div>
 
-          <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
-            Login
+          <button type="submit" disabled={loading} className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+            {loading ? "Please wait..." : "Login"}
           </button>
 
           <div className="float-right mt-2">

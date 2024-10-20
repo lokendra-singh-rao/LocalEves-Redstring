@@ -20,11 +20,13 @@ const Signup = () => {
   // error and success states
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError("");
     setSuccess("");
 
@@ -53,15 +55,17 @@ const Signup = () => {
       } else {
         setError("An error occurred! Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleVerifyEmail = async (e) => {
     e.preventDefault();
+    setLoading(true);
     setError("");
     setSuccess("");
 
-    // Basic validation
     if (!otp) {
       setError("Enter OTP");
       return;
@@ -84,6 +88,8 @@ const Signup = () => {
       } else {
         setError("An error occurred! Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -140,8 +146,8 @@ const Signup = () => {
               {success && <div className="text-green-500">{success}</div>}
             </div>
 
-            <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
-              Sign Up
+            <button disabled={loading} type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+              {loading ? "Please wait..." : "Sign Up"}
             </button>
 
             <div className="float-right mt-2">
@@ -167,8 +173,8 @@ const Signup = () => {
               {success && <div className="text-green-500">{success}</div>}
             </div>
 
-            <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
-              Verify Otp
+            <button disabled={loading} type="submit" className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-300">
+              {loading ? "Please wait..." : "Verify Otp"}
             </button>
           </form>
         </div>

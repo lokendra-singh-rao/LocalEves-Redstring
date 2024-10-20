@@ -18,24 +18,30 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [role, setRole] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem("isLoggedIn") === "true") {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
+    try {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
 
-    if (localStorage.getItem("role")) {
-      setRole(localStorage.getItem("role"));
-    } else {
-      setIsLoggedIn(false);
+      if (localStorage.getItem("role")) {
+        setRole(localStorage.getItem("role"));
+      } else {
+        setIsLoggedIn(false);
+      }
+    } catch (error) {
+    } finally {
+      setLoading(false);
     }
   });
 
-  const handleLogout = async () => {
-    localStorage.setItem("isLoggedIn", false);
-  };
+  if (loading) {
+    return <div className="text-center mt-8">Loading...</div>;
+  }
 
   return (
     <>

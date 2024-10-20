@@ -12,7 +12,7 @@ const PORT = process.env.PORT;
 
 app.use(express.static("public"));
 app.use(cookieParser());
-app.use(cors({ origin: "https://lokendra-server.koyeb.app", credentials: true }));
+app.use(cors({ origin: "https://localeves-client.vercel.app", credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

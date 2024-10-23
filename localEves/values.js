@@ -1,1 +1,1 @@
-export const SERVER_URL = "https://lokendra-server.koyeb.app";
+export const SERVER_URL = "https://lokenrao.koyeb.app";
